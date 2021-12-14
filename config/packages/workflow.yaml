@@ -1,2 +1,41 @@
 framework:
-    workflows: null
+    workflows:
+        order_processing:
+            type: 'workflow'
+            marking_store:
+                type: 'method'
+                property: 'status'
+            supports:
+                - App\Trade\Domain\Model\Order
+            initial_marking: 'pending'
+            places:
+                - 'pending'
+                - 'accepted'
+                - 'refused'
+                - 'processing'
+                - 'failed_processing'
+                - 'delivering'
+                - 'failed_delivery'
+                - 'complete'
+            transitions:
+                accept:
+                    from: 'pending'
+                    to: 'accepted'
+                refuse:
+                    from: 'pending'
+                    to: 'refused'
+                process:
+                    from: 'accepted'
+                    to: 'processing'
+                process_failure:
+                    from: 'processing'
+                    to: 'failed_processing'
+                deliver:
+                    from: 'processing'
+                    to: 'delivering'
+                delivery_failure:
+                    from: 'delivering'
+                    to: 'failed_delivery'
+                complete:
+                    from: 'delivering'
+                    to: 'complete'
