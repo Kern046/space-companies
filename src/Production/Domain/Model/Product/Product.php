@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Trade\Domain\Model;
+namespace App\Production\Domain\Model\Product;
 
 use App\Company\Domain\Model\Company;
-use App\Shared\Domain\Model\User;
 use Symfony\Component\Uid\Uuid;
 
-final class Customer
+class Product
 {
     public function __construct(
         public Uuid $id,
+        public string $name,
+        public string $description,
         public Company $company,
-        public string $email,
-        public ?User $user = null,
     ) {
 
     }

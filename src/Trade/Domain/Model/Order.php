@@ -7,10 +7,13 @@ use Symfony\Component\Uid\Uuid;
 final class Order
 {
     public function __construct(
-        public Uuid $uuid,
+        public Uuid $id,
         public Customer $customer,
         public OrderStatus $status,
+        /** @var list<OrderOffer> */
+        public array $orderOffers,
         public \DateTime $createdAt,
+        public \DateTime $updatedAt,
     ) {
 
     }

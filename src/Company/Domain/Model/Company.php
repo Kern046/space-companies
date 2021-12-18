@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Shared\Domain\Model;
+namespace App\Company\Domain\Model;
+
+use Symfony\Component\Uid\Uuid;
 
 final class Company
 {
     public function __construct(
-        public int $îd,
+        public Uuid $id,
         public string $name,
-
     ) {
     }
 }
