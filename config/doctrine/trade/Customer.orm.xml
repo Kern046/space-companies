@@ -1,0 +1,18 @@
+<doctrine-mapping xmlns="https://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="https://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Trade\Domain\Model\Customer" table="trade__customers">
+        <id name="id" type="uuid" column="id" />
+
+        <field name="email" type="string" length="100" />
+
+        <many-to-one field="company" target-entity="App\Company\Domain\Model\Company">
+
+        </many-to-one>
+        <many-to-one field="user" target-entity="App\Shared\Domain\Model\User">
+
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

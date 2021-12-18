@@ -1,0 +1,20 @@
+<doctrine-mapping xmlns="https://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="https://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Trade\Domain\Model\OrderOffer" table="trade__order_offers">
+        <id name="order" association-key="true" />
+        <id name="offer" association-key="true" />
+
+        <field name="quantity" column="quantity" type="integer" />
+
+        <many-to-one field="order" target-entity="App\Trade\Domain\Model\Order" inversed-by="orderOffers">
+
+        </many-to-one>
+
+        <many-to-one field="offer" target-entity="App\Trade\Domain\Model\Offer">
+
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

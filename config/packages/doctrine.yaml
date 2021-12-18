@@ -10,9 +10,23 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
+            Company:
+                is_bundle: false
+                type: 'xml'
+                dir: '%kernel.project_dir%/config/doctrine/company'
+                prefix: App\Company\Domain\Model
+            Production:
+                is_bundle: false
+                type: 'xml'
+                dir: '%kernel.project_dir%/config/doctrine/production'
+                prefix: App\Production\Domain\Model
+            Shared:
+                is_bundle: false
+                type: 'xml'
+                dir: '%kernel.project_dir%/config/doctrine/shared'
+                prefix: App\Shared\Domain\Model
             Trade:
                 is_bundle: false
-                type: yml
+                type: 'xml'
                 dir: '%kernel.project_dir%/config/doctrine/trade'
-                prefix: 'App\Trade\Domain\Model'
-                alias: Trade
+                prefix: App\Trade\Domain\Model
