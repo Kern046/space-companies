@@ -2,7 +2,7 @@
 
 namespace App\Trade\Domain\Model;
 
-final class OrderOffer
+class OrderOffer
 {
     public function __construct(
         public int $quantity,

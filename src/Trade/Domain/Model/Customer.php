@@ -6,7 +6,7 @@ use App\Company\Domain\Model\Company;
 use App\Shared\Domain\Model\User;
 use Symfony\Component\Uid\Uuid;
 
-final class Customer
+class Customer
 {
     public function __construct(
         public Uuid $id,

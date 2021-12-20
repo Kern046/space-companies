@@ -4,7 +4,7 @@ namespace App\Trade\Domain\Model;
 
 use Symfony\Component\Uid\Uuid;
 
-final class Order
+class Order
 {
     public function __construct(
         public Uuid $id,

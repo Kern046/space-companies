@@ -6,7 +6,7 @@ use App\Production\Domain\Model\Product\Product;
 use App\Shared\Domain\Model\Price;
 use Symfony\Component\Uid\Uuid;
 
-final class Offer
+class Offer
 {
     public function __construct(
         public Uuid $id,
