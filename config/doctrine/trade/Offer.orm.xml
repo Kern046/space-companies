@@ -6,7 +6,7 @@
     <entity name="App\Trade\Domain\Model\Offer" table="trade__offers">
         <id name="id" type="uuid" column="id" />
 
-        <field name="price" column="price" type="json" />
+        <field name="price" column="price" type="object" />
 
         <many-to-one field="product" target-entity="App\Production\Domain\Model\Product\Product">
 
