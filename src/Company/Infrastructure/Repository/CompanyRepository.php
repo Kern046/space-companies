@@ -14,6 +14,11 @@ class CompanyRepository extends ServiceEntityRepository implements CompanyReposi
         parent::__construct($registry, Company::class);
     }
 
+    public function getOne(string $slug): ?Company
+    {
+        return $this->findOneBy(['slug' => $slug]);
+    }
+
     public function getLastActiveCompanies(int $limit = 5): array
     {
         return $this->createQueryBuilder('c')

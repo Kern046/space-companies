@@ -17,9 +17,15 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Entity/'
+            - '../src/*/Domain/'
             - '../src/Kernel.php'
             - '../src/Tests/'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Production\Domain\Repository\ProductRepositoryInterface: '@App\Production\Infrastructure\Repository\ProductRepository'
+
+    App\Company\Domain\Repository\CompanyRepositoryInterface: '@App\Company\Infrastructure\Repository\CompanyRepository'
+
+    App\Trade\Domain\Repository\OfferRepositoryInterface: '@App\Trade\Infrastructure\Repository\OfferRepository'

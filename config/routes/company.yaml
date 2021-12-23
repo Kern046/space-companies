@@ -1,0 +1,4 @@
+company_view:
+  path:  '/companies/{slug}'
+  controller: App\Company\Infrastructure\Controller\Company\View
+  methods: 'GET'

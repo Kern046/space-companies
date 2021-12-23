@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ company.name }}{% endblock title %}
+
+{% block body %}
+    <h1>{{ company.name }}</h1>
+
+    <section>
+        {% for offer in offers %}
+            <div class="offer">
+                <h3>{{ offer.product.name }}</h3>
+                <p>{{ offer.price.amount }} <strong>{{ offer.price.currency.value }}</strong></p>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock body %}

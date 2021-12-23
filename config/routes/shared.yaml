@@ -1,4 +1,4 @@
 homepage:
   path: '/'
-  controller: App\Shared\Infrastructure\Controller\HomepageController
+  controller: App\Shared\Infrastructure\Controller\Homepage
   methods: 'GET'
