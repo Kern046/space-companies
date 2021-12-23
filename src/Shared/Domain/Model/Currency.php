@@ -2,9 +2,9 @@
 
 namespace App\Shared\Domain\Model;
 
-enum Currency
+enum Currency: string
 {
-    case EUR;
-    case GBP;
-    case USD;
+    case EUR = 'EUR';
+    case GBP = 'GPB';
+    case USD = 'USD';
 }
