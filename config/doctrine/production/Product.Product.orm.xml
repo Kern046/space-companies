@@ -7,6 +7,15 @@
         <id name="id" type="uuid" column="id" />
 
         <field name="name" column="name" type="string" length="100" />
+        <field name="slug" column="slug" type="string" length="100" />
         <field name="description" column="description" type="text" />
+
+        <many-to-one field="company" target-entity="App\Company\Domain\Model\Company">
+
+        </many-to-one>
+
+        <unique-constraints>
+            <unique-constraint columns="slug,company_id" name="company_slug_uniq" />
+        </unique-constraints>
     </entity>
 </doctrine-mapping>
