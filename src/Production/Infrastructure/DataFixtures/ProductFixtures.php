@@ -16,7 +16,10 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
         foreach ($this->generateProducts() as $product) {
             $manager->persist($product);
 
-
+            $this->addReference(
+                sprintf('product.%s.%s', $product->company->slug, $product->slug),
+                $product,
+            );
         }
 
         $manager->flush();
@@ -27,6 +30,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
         yield new Product(
             Uuid::v4(),
             'Star Crusader',
+            'star-crusader',
             'Light fighter with a hyperdrive easily deployed in any corner of the galaxy',
             $this->getReference('company.yalos-ships')
         );
