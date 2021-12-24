@@ -1,0 +1,9 @@
+<header>
+    <nav>
+        {% if is_granted('ROLE_USER') %}
+            <p>{{ app.user.email }}</p>
+        {% else %}
+            <a href="{{ path('login') }}">Connexion</a>
+        {% endif %}
+    </nav>
+</header>

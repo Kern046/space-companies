@@ -39,3 +39,33 @@ framework:
                 complete:
                     from: 'delivering'
                     to: 'complete'
+        user_account:
+            type: 'workflow'
+            marking_store:
+                type: 'method'
+                property: 'status'
+            supports:
+                - App\Shared\Domain\Model\User
+            initial_marking: 'registered'
+            places:
+                - 'registered'
+                - 'inactive'
+                - 'confirmed'
+                - 'banned'
+                - 'disabled'
+            transitions:
+                confirm:
+                    from: 'registered'
+                    to: 'confirmed'
+                invalidate:
+                    from: 'registered'
+                    to: 'inactive'
+                disable:
+                    from: 'confirmed'
+                    to: 'disabled'
+                ban:
+                    from: 'confirmed'
+                    to: 'banned'
+                unban:
+                    from: 'banned'
+                    to: 'confirmed'

@@ -2,31 +2,45 @@
 
 namespace App\Shared\Domain\Model;
 
+use Symfony\Component\Security\Core\User\EquatableInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
 
-class User implements UserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, EquatableInterface
 {
     public function __construct(
         public Uuid $id,
         public string $email,
-        public string $password,
+        public ?string $password,
+        public ?string $plainPassword,
+        public UserStatus $status,
     ) {
 
     }
 
     public function getUserIdentifier(): string
     {
-        // TODO: Implement getUserIdentifier() method.
+        return $this->email;
     }
 
     public function getRoles(): array
     {
-        // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
     }
 
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
+        $this->password = $this->plainPassword = null;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function isEqualTo(UserInterface $user): bool
+    {
+        return $user->getUserIdentifier() === $this->getUserIdentifier();
     }
 }

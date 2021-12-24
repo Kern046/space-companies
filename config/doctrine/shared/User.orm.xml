@@ -8,5 +8,6 @@
 
         <field name="email" column="email" type="string" length="100" unique="true" />
         <field name="password" column="password" type="string" length="150" />
+        <field name="status" column="status" type="object" length="25" />
     </entity>
 </doctrine-mapping>
